@@ -89,6 +89,36 @@ streamlit run frontend/app_fixed.py
 
 Opens a web UI to input house details and get predicted prices.
 
+## Running with Docker
+
+### Prerequisites
+
+- Docker installed on your machine ([Get Docker](https://docs.docker.com/get-docker/))
+
+### Build and run with docker-compose (recommended)
+
+```bash
+docker-compose up --build
+```
+
+This starts both services:
+- **Backend** at `http://localhost:8000`
+- **Frontend** at `http://localhost:8501`
+
+### Run individual containers
+
+```bash
+# Build the image
+docker build -t house-price-predictor .
+
+# Backend only
+docker run -p 8000:8000 house-price-predictor
+
+# Frontend only (needs backend running separately)
+docker run -p 8501:8501 -e API_URL=http://host.docker.internal:8000 house-price-predictor \
+  streamlit run frontend/app_fixed.py --server.port 8501 --server.address 0.0.0.0
+```
+
 ## Deployment on Render
 
 The application is deployed on Render at:
