@@ -2,6 +2,8 @@
 
 End-to-end house price prediction system using machine learning, with a FastAPI backend and Streamlit frontend.
 
+🔗 **Live Demo:** [https://end-to-end-house-price-prediction-tgen.onrender.com/](https://end-to-end-house-price-prediction-tgen.onrender.com/)
+
 ## Table of Contents
 
 - [Project Structure](#project-structure)
@@ -10,6 +12,7 @@ End-to-end house price prediction system using machine learning, with a FastAPI 
 - [Models Compared](#models-compared)
 - [Running the Application](#running-the-application)
 - [Running with Docker](#running-with-docker)
+- [Deployment on Render](#deployment-on-render)
 - [Screenshots](#screenshots)
 - [Requirements](#requirements)
 
@@ -86,35 +89,20 @@ streamlit run frontend/app_fixed.py
 
 Opens a web UI to input house details and get predicted prices.
 
-## Running with Docker
+## Deployment on Render
 
-### Prerequisites
+The application is deployed on Render at:
 
-- Docker installed on your machine ([Get Docker](https://docs.docker.com/get-docker/))
+[https://end-to-end-house-price-prediction-tgen.onrender.com/](https://end-to-end-house-price-prediction-tgen.onrender.com/)
 
-### Build and run with docker-compose (recommended)
+### Deploy your own
 
-```bash
-docker-compose up --build
-```
-
-This starts both services:
-- **Backend** at `http://localhost:8000`
-- **Frontend** at `http://localhost:8501`
-
-### Run individual containers
-
-```bash
-# Build the image
-docker build -t house-price-predictor .
-
-# Backend only
-docker run -p 8000:8000 house-price-predictor
-
-# Frontend only (needs backend running separately)
-docker run -p 8501:8501 -e API_URL=http://host.docker.internal:8000 house-price-predictor \
-  streamlit run frontend/app_fixed.py --server.port 8501 --server.address 0.0.0.0
-```
+1. Fork this repository
+2. On [Render](https://render.com), create a new **Web Service**
+3. Connect your forked repo
+4. Set **Build Command** to `pip install -r requirements.txt`
+5. Set **Start Command** to `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+6. Deploy
 
 ## Screenshots
 
