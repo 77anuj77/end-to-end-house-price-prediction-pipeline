@@ -125,14 +125,6 @@ The application is deployed on Render at:
 
 [https://end-to-end-house-price-prediction-tgen.onrender.com/](https://end-to-end-house-price-prediction-tgen.onrender.com/)
 
-### Deploy your own
-
-1. Fork this repository
-2. On [Render](https://render.com), create a new **Web Service**
-3. Connect your forked repo
-4. Set **Build Command** to `pip install -r requirements.txt`
-5. Set **Start Command** to `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
-6. Deploy
 
 ## Screenshots
 
