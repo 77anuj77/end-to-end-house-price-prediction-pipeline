@@ -1,4 +1,4 @@
-# House Price Prediction - FAML Assignment 9
+# House Price Prediction
 
 End-to-end house price prediction system using machine learning, with a FastAPI backend and Streamlit frontend.
 
